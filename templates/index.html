@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html><head><title>Cloud ChatBot - Task 4</title>
+<style>body{font-family:Arial;background:#f0f2f5;display:flex;justify-content:center;padding-top:30px}.chat{width:400px;background:white;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);overflow:hidden}.header{background:#7c3aed;color:white;padding:15px;text-align:center;font-weight:bold}.box{height:400px;overflow-y:auto;padding:15px}.msg{margin:10px 0;padding:10px 15px;border-radius:15px;max-width:80%}.user{background:#7c3aed;color:white;margin-left:auto}.bot{background:#e5e7eb}.input{display:flex;padding:10px;border-top:1px solid #ddd}input{flex:1;padding:10px;border-radius:20px;border:1px solid #ccc}button{background:#7c3aed;color:white;border:none;padding:10px 15px;border-radius:20px;margin-left:10px}</style>
+</head><body>
+<div class="chat"><div class="header">☁️ Cloud-Based ChatBot</div>
+<div class="box" id="box"><div class="msg bot">Hello! I'm your cloud chatbot. How can I help? 🚀</div></div>
+<div class="input"><input id="inp" placeholder="Type..." onkeypress="if(event.keyCode==13)send()"><button onclick="send()">Send</button></div></div>
+<script>async function send(){let i=document.getElementById('inp'),m=i.value.trim();if(!m)return;let b=document.getElementById('box');b.innerHTML+=`<div class="msg user">${m}</div>`;i.value='';let r=await fetch('/get_response',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:m})});let d=await r.json();b.innerHTML+=`<div class="msg bot">${d.response}</div>`;b.scrollTop=b.scrollHeight}</script>
+</body></html>
