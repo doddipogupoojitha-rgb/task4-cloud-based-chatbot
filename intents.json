@@ -1,0 +1,9 @@
+{
+  "intents": [
+    {"tag":"greeting","patterns":["hi","hello","hey"],"responses":["Hi! How can I help?","Hello! I'm cloud chatbot!"]},
+    {"tag":"support","patterns":["support","help","issue"],"responses":["Tell me your issue, I'll assist!"]},
+    {"tag":"services","patterns":["services","cloud"],"responses":["I'm deployed on cloud! I provide automated support."]},
+    {"tag":"thanks","patterns":["thanks","thank you"],"responses":["You're welcome! 😊"]},
+    {"tag":"bye","patterns":["bye","goodbye"],"responses":["Bye! Have a nice day!"]}
+  ]
+}
